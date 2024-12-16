@@ -57,7 +57,7 @@ if __name__ == "__main__":
     os.makedirs(log_dir, exist_ok=True)
 
     # Número de entornos paralelos
-    num_envs = 100 # Ajusta según los recursos de tu sistema
+    num_envs = 10 # Ajusta según los recursos de tu sistema
 
     # Crear múltiples entornos vectorizados con VecMonitor
     train_env = make_multi_env(num_envs)
