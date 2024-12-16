@@ -1,12 +1,9 @@
 import os
+import time
 import gym
 import gym_multi_car_racing
 import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
 from stable_baselines3 import DQN
-from stable_baselines3.common.vec_env import DummyVecEnv, VecMonitor
-from stable_baselines3.common.evaluation import evaluate_policy
 from stable_baselines3.common.callbacks import BaseCallback
 
 # Wrapper para discretizar las acciones
@@ -31,6 +28,18 @@ def make_env():
     env = DiscreteActionsWrapper(env)
     return env
 
+# Callback para renderizar el entorno
+class RenderCallback(BaseCallback):
+    def __init__(self, env, verbose=0):
+        super().__init__(verbose)
+        self.env = env
+
+    def _on_step(self) -> bool:
+        # Renderiza el entorno en modo "human"
+        self.env.render(mode="human")
+        time.sleep(0.05)  # Pausa para ralentizar el render
+        return True
+
 # Callback para detener el entrenamiento tras X episodios
 class StopTrainingOnEpisodes(BaseCallback):
     def __init__(self, max_episodes: int, verbose=0):
@@ -54,14 +63,13 @@ if __name__ == "__main__":
     log_dir = "./logs/"
     os.makedirs(log_dir, exist_ok=True)
 
-    # Entorno de entrenamiento con VecMonitor
-    train_env = DummyVecEnv([make_env])
-    train_env = VecMonitor(train_env, log_dir)
+    # Crear el entorno para entrenamiento y renderizado
+    train_env = make_env()  # Entorno no vectorizado para renderizar
 
     # Crear el modelo DQN
     model = DQN(
         policy="CnnPolicy",
-        env=train_env,
+        env=train_env,  # Entorno no vectorizado
         learning_rate=1e-4,
         buffer_size=50000,
         learning_starts=10000,
@@ -76,16 +84,18 @@ if __name__ == "__main__":
         device="auto"
     )
 
-    # Entrenar, deteniéndonos después de X episodios
-    max_episodes = 10
-    callback = StopTrainingOnEpisodes(max_episodes=max_episodes, verbose=1)
-    model.learn(total_timesteps=int(1e7), callback=callback)  
+    # Combinar callbacks: render y detener por episodios
+    max_episodes = 1000
+    stop_callback = StopTrainingOnEpisodes(max_episodes=max_episodes, verbose=1)
+    render_callback = RenderCallback(train_env)
+    callbacks = [stop_callback, render_callback]
+
+    # Entrenar el modelo con los callbacks
+    model.learn(total_timesteps=int(1e7), callback=callbacks)
     model.save("dqn_multi_car_racing")
 
-    # Entorno de evaluación separado
-    eval_env = DummyVecEnv([make_env])
-    mean_reward, std_reward = evaluate_policy(model, eval_env, n_eval_episodes=5)
+    # Evaluación final
+    mean_reward, std_reward = evaluate_policy(model, train_env, n_eval_episodes=5)
     print(f"Recompensa media (evaluación): {mean_reward} +/- {std_reward}")
 
-    # Aquí ya no generamos la gráfica. Solo avisamos que terminó el entrenamiento.
-    print("Entrenamiento finalizado. Ejecuta 'python plot_results.py' para generar la gráfica.")
+    print("Entrenamiento finalizado. Revisa el renderizado durante el proceso.")
