@@ -57,7 +57,7 @@ if __name__ == "__main__":
     os.makedirs(log_dir, exist_ok=True)
 
     # Número de entornos paralelos
-    num_envs = 1  # Ajusta según los recursos de tu sistema
+    num_envs = 1 # Ajusta según los recursos de tu sistema
 
     # Crear múltiples entornos vectorizados con VecMonitor
     train_env = make_multi_env(num_envs)
@@ -80,7 +80,7 @@ if __name__ == "__main__":
     )
 
     # Entrenar el modelo
-    max_episodes = 10  # Cambia según tus necesidades
+    max_episodes = 5  # Cambia según tus necesidades
     callback = StopTrainingOnEpisodes(max_episodes=max_episodes, verbose=1)
     model.learn(total_timesteps=int(1e6), callback=callback)
     model.save("ppo_multi_car_racing")
