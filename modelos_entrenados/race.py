@@ -2,6 +2,7 @@ import os
 import gym
 import gym_multi_car_racing
 import numpy as np
+import time  # Importar la librería time
 from stable_baselines3 import DQN, PPO
 
 # Wrapper para discretizar las acciones
@@ -61,6 +62,7 @@ if __name__ == "__main__":
 
         # Renderizado
         env.render(mode="human")
+        time.sleep(0.05)  # Añadir pausa de 0.05 segundos (ajusta según necesidad)
 
     print("\n--- Resultados Finales ---")
     print(f"DQN: Recompensa total = {total_rewards[0]}")
