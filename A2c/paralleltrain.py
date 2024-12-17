@@ -29,62 +29,53 @@ def make_env():
     env = DiscreteActionsWrapper(env)
     return env
 
-# Crear múltiples instancias del entorno
 def make_multi_env(num_envs):
     return DummyVecEnv([make_env for _ in range(num_envs)])
 
-# Callback para detener el entrenamiento tras X episodios
+# Callback mejorado
 class StopTrainingOnEpisodes(BaseCallback):
     def __init__(self, max_episodes: int, verbose=0):
         super().__init__(verbose)
         self.max_episodes = max_episodes
-        self.episode_count = 0
+        self.global_episode_count = 0
 
     def _on_step(self) -> bool:
-        if self.locals.get("infos"):
-            for info in self.locals["infos"]:
-                if "episode" in info:
-                    self.episode_count += 1
-                    if self.verbose > 0:
-                        print(f"Episodio {self.episode_count} finalizado con recompensa {info['episode']['r']}.")
-                    if self.episode_count >= self.max_episodes:
-                        print(f"Se alcanzó el límite de {self.max_episodes} episodios. Deteniendo el entrenamiento.")
-                        return False
+        for info in self.locals.get("infos", []):
+            if "episode" in info:
+                self.global_episode_count += 1
+                if self.verbose > 0:
+                    print(f"Episodio global {self.global_episode_count} finalizado con recompensa {info['episode']['r']}.")
+                if self.global_episode_count >= self.max_episodes:
+                    print(f"Se alcanzó el límite global de {self.max_episodes} episodios. Deteniendo el entrenamiento.")
+                    return False
         return True
 
 if __name__ == "__main__":
     log_dir = "./logs/"
     os.makedirs(log_dir, exist_ok=True)
 
-    # Número de entornos paralelos
-    num_envs = 100  # Ajusta según los recursos de tu sistema
-
-    # Crear múltiples entornos vectorizados con VecMonitor
+    num_envs = 10  # Reducido para evitar episodios simultáneos excesivos
     train_env = make_multi_env(num_envs)
     train_env = VecMonitor(train_env, log_dir)
 
-    # Crear el modelo A2C
     model = A2C(
-        policy="CnnPolicy",  # Política basada en imágenes
+        policy="CnnPolicy",
         env=train_env,
-        learning_rate=7e-4,  # Tasa de aprendizaje recomendada para A2C
-        n_steps=5,  # Número de pasos antes de actualizar los pesos (pequeño para A2C)
-        gamma=0.99,  # Factor de descuento
-        vf_coef=0.25,  # Peso de la pérdida de valor
-        ent_coef=0.01,  # Peso de la entropía para exploración
+        learning_rate=7e-4,
+        n_steps=5,
+        gamma=0.99,
+        vf_coef=0.25,
+        ent_coef=0.01,
         verbose=1,
-        device="cuda"  # Usar GPU si está disponible
+        device="cuda"
     )
 
-    # Entrenar el modelo
-    max_episodes = 5000  # Cambia según tus necesidades
+    max_episodes = 5000
     callback = StopTrainingOnEpisodes(max_episodes=max_episodes, verbose=1)
-    model.learn(total_timesteps=int(1e6), callback=callback)
+    model.learn(total_timesteps=int(5e7), callback=callback)  # Ajustado para más entornos
     model.save("a2c_multi_car_racing")
 
-    # Entorno de evaluación separado (1 solo entorno)
     eval_env = DummyVecEnv([make_env])
     mean_reward, std_reward = evaluate_policy(model, eval_env, n_eval_episodes=5)
     print(f"Recompensa media (evaluación): {mean_reward} +/- {std_reward}")
-
     print("Entrenamiento finalizado.")
