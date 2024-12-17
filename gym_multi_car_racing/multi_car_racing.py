@@ -45,7 +45,7 @@ STATE_H = 96
 VIDEO_W = 600
 VIDEO_H = 400
 WINDOW_W = 1000
-WINDOW_H = 800
+WINDOW_H = 8000
 
 SCALE       = 6.0        # Track scale
 TRACK_RAD   = 900/SCALE  # Track is heavily morphed circle with this radius
