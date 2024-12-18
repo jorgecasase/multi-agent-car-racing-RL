@@ -142,5 +142,5 @@ Cada modelo utiliza una estrategia única derivada de su algoritmo de RL, demost
 
 Las recompensas acumuladas por episodio permiten visualizar si el modelo está aprendiendo de manera efectiva y su velocidad de convergencia:
 
-![Ejemplo de gráfica](videos/plot_rewards_example.png)
+![Ejemplo de gráfica](PPO/PPO.png)
 
