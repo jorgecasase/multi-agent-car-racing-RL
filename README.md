@@ -1,22 +1,22 @@
-# Proyecto de IA de RL: Comparación de Algoritmos de Refuerzo
+# RL AI Project: Comparison of Boosting Algorithms
 
 <div>
   <img src="https://github.com/jorgecasase/github-repos-img/blob/main/img/python.png" alt="python" height="100"/>
   <img src="https://github.com/jorgecasase/github-repos-img/blob/main/img/anaconda.png" alt="anaconda" height="100"/>
 </div>
 
-## Introducción
-Este proyecto tiene como objetivo estudiar y comparar distintos algoritmos de Aprendizaje por Refuerzo (RL), explorando sus características y comportamientos. Implementamos tres tipos de algoritmos:
+## Introduction
+This project aims to study and compare different Reinforcement Learning (RL) algorithms, exploring their characteristics and behaviors. We implemented three types of algorithms:
 
-- **Deep Q-Learning (Valor)**
-- **Proximal Policy Optimization (Policy)**
-- **Advantage Actor-Critic (Mixed)**
+- **Deep Q-Learning (Value)**.
+- Proximal Policy Optimization (Policy)** **Advantage Actor-Critical (Policy)**.
+- Advanced Actor-Critic (Mixed)** **Advantage Actor-Critic (Mixed)**.
 
-Finalmente, los modelos entrenados compiten en un entorno de carreras multiagente para evaluar su desempeño.
+Finally, the trained models compete in a multi-agent race environment to evaluate their performance.
 
 ---
 
-## Simulaciones
+## Simulations
 
 ### Deep Q-Learning
 <img src="videos/gifs/DQL.gif" alt="Deep Q-Learning en acción" height="400">
@@ -27,77 +27,77 @@ Finalmente, los modelos entrenados compiten en un entorno de carreras multiagent
 ### Advantage Actor-Critic
 <img src="videos/gifs/A2C.gif" alt="A2C en acción" height="400">
 
-### Carrera Multiagente
+### Multiagent race
 <img src="videos/gifs/racefinal.gif" alt="Carrera Multiagente" height="400">
 ---
 
-## Estructura del Proyecto
+## Project Structure
 ```
-├── A2C/ # Carpeta para el algoritmo A2C 
-├── PPO/ # Carpeta para el algoritmo PPO 
-├── deepQ/ # Carpeta para el algoritmo Deep Q-Learning 
-├── gym_multi_car_racing/ # Librería modificada de MultiCarRacing 
-├── race/ # Scripts para competir con los modelos entrenados 
-├── videos/ # Contiene gifs y videos de las simulaciones 
-├── .gitignore # Archivos ignorados por git 
-├── enviroment.yml # Configuración del entorno de Anaconda 
-├── setup.py # Configuración de instalación de librería
+├── A2C/ # # Folder for the A2C algorithm 
+├─── PPO/ # Folder for PPO algorithm 
+├─── deepQ/ # Folder for the Deep Q-Learning algorithm. 
+├─── gym_multi_car_racing/ # Modified MultiCarRacing library. 
+├─── race/ # Scripts for racing with trained models. 
+├─── videos/ # Contains gifs and videos of the simulations. 
+├─── .gitignore # Files ignored by git. 
+├─── enviroment.yml # Anaconda environment configuration. 
+├─── setup.py # Library installation configuration.
 ```
 
 ---
 
-## Archivos importantes por algoritmo
-Cada carpeta de algoritmo incluye los siguientes archivos:
+## Important files per algorithm
+Each algorithm folder includes the following files:
 
-- **`train.py`**: Entrena el modelo.
-- **`trainhuman.py`**: Entrena el modelo con render gráfico (más lento pero visualizable).
-- **`replay.py`**: Carga un modelo entrenado y lo muestra jugando.
-- **`plot_results.py`**: Genera gráficas de episodios vs. recompensas para analizar el aprendizaje.
-- **`paralleltrain.py`**: Entrenamiento intensivo con múltiples entornos paralelos.
-
----
-
-## Ejecución
-
-### Requisitos Previos
-- **Anaconda instalado.**
-- **GPU compatible con CUDA** (opcional, pero recomendado para acelerar los entrenamientos).
+- **`train.py`**: Train the model.
+- **`trainhuman.py`**: Train the model with graphical rendering (slower but viewable).
+- **`replay.py`**: Loads a trained model and shows it playing.
+- **`plot_results.py`**: Generates graphs of episodes vs. rewards to analyze learning.
+- **`paralleltrain.py`**: Intensive training with multiple parallel environments.
 
 ---
 
-### Instrucciones
+## Execution
 
-#### Clonar el Repositorio
+### Prerequisites
+- Anaconda installed.
+- CUDA-compatible GPU** (optional, but recommended to speed up training).
+
+---
+
+### Instructions
+
+#### Clone the Repository
 
 ```git clone https://github.com/tu_usuario/multi-agent-car-racing-RL.git```
 ```cd multi-agent-car-racing-RL```
 
-### Crear el Entorno de Anaconda
+### Create the Anaconda Environment
 
 ```conda env create -f environment.yml```
 ```conda activate car```
 
-### Instalar la Librería gym_multi_car_racing
+### Install gym_multi_car_racing Library
 ```python -m pip install -e gym_multi_car_racing```
 
-## Entrenar un Modelo
+## Train a Model
 
-Ve a la carpeta del algoritmo que quieras entrenar, por ejemplo, PPO:
+Go to the folder of the algorithm you want to train, for example, PPO:
 ```cd PPO python train.py```
 
-## Ver una Simulación
-Una vez entrenado, puedes cargar el modelo y verlo jugar:
+## View a Simulation
+Once trained, you can load the model and watch it play:
 ```python replay.py```
 
-## Realizar una Carrera Multiagente
-Ejecuta el script de carrera en la carpeta `race`:
+## Perform a Multiagent Race
+Run the race script in the `race` folder:
 ```cd race```
 ```python race.py```
 
-## Resultados 
+## Results 
 
-Ejemplo de Comportamiento de los Modelos
-Aquí puedes ver cómo se desempeña cada algoritmo en el entorno:
+Example of Model Behavior
+Here you can see how each algorithm performs in the environment:
 
 1. Deep Q-Learning
 2. Proximal Policy Optimization
@@ -105,42 +105,42 @@ Aquí puedes ver cómo se desempeña cada algoritmo en el entorno:
 
 ---
 
-## Carrera multiagente
-En la carrera final, los tres modelos compiten para obtener el mayor puntaje. Aquí está el ranking final basado en 10 carreras:
+## Multi-agent race
+In the final race, the three models compete for the highest score. Here is the final ranking based on 10 races:
 
-## Carrera Multiagente
+## Multi-agent race
 
-En la carrera final, los tres modelos compiten para obtener el mayor puntaje. Aquí está el ranking final basado en 10 carreras:
+In the final race, the three models compete for the highest score. Here is the final ranking based on 10 races:
 
-| Modelo | Carreras Ganadas |
+| Model  | Won races        |
 |--------|------------------|
 | PPO    | 6                |
 | A2C    | 3                |
 | DQN    | 1                |
 
-Cada modelo utiliza una estrategia única derivada de su algoritmo de RL, demostrando cómo estos enfoques diferentes se desempeñan en un entorno competitivo.
+Each model uses a unique strategy derived from its RL algorithm, demonstrating how these different approaches perform in a competitive environment.
 
 ---
 
-## Detalles del Entrenamiento
+## Training Details
 
-### Configuración de los Algoritmos
+### Algorithm Configuration
 
-- **Deep Q-Learning (DQN)**: Utiliza una tabla de valores Q para decidir la mejor acción en función de un estado observado.
-- **Proximal Policy Optimization (PPO)**: Algoritmo basado en políticas que optimiza directamente la probabilidad de tomar una acción en función de un estado.
-- **Advantage Actor-Critic (A2C)**: Combina una política (actor) con una función de valor (critic) para mejorar la estabilidad y la eficiencia del entrenamiento.
+- Deep Q-Learning (DQN)**: Uses a table of Q-values to decide the best action based on an observed state.
+- Proximal Policy Optimization (PPO)**: Policy-based algorithm that directly optimizes the probability of taking an action as a function of a state.
+- Advanced Actor-Critic (A2C)**: Combines a policy (actor) with a value function (critic) to improve stability and training efficiency.
 
-### Estrategias Utilizadas
+### Strategies Used
 
-- **Entornos paralelos**: Se utilizan múltiples entornos para optimizar el tiempo de entrenamiento y mejorar la eficiencia del hardware disponible.
-- **Visualización en tiempo real**: Con `trainhuman.py`, puedes observar el comportamiento del modelo durante el entrenamiento.
-- **Gráficas de aprendizaje**: Con `plot_results.py`, puedes analizar la eficiencia y las recompensas obtenidas a lo largo de los episodios.
+- Parallel environments**: Multiple environments are used to optimize training time and improve the efficiency of the available hardware.
+- Real-time visualization**: With `trainhuman.py`, you can observe the behavior of the model during training.
+- Learning graphs**: With `plot_results.py`, you can analyze the efficiency and rewards obtained throughout the episodes.
 
 ---
 
-## Ejemplo de Gráfica de Entrenamiento
+## Training Graph Example
 
-Las recompensas acumuladas por episodio permiten visualizar si el modelo está aprendiendo de manera efectiva y su velocidad de convergencia:
+The rewards accumulated per episode allow visualizing whether the model is learning effectively and its convergence speed:
 
 ![Ejemplo de gráfica](PPO/PPO.png)
 
