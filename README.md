@@ -14,7 +14,7 @@ Finalmente, los modelos entrenados compiten en un entorno de carreras multiagent
 ## Simulaciones
 
 ### Deep Q-Learning
-<img src="videos/gifs/DQN.gif" alt="Deep Q-Learning en acción" height="400">
+<img src="videos/gifs/DQL.gif" alt="Deep Q-Learning en acción" height="400">
 
 ### Proximal Policy Optimization
 <img src="videos/gifs/PPO.gif" alt="PPO en acción" height="400">
