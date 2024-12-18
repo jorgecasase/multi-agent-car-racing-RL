@@ -8,9 +8,9 @@
 ## Introduction
 This project aims to study and compare different Reinforcement Learning (RL) algorithms, exploring their characteristics and behaviors. We implemented three types of algorithms:
 
-- **Deep Q-Learning (Value)**.
-- Proximal Policy Optimization (Policy) **Advantage Actor-Critical (Policy)**.
-- Advanced Actor-Critic (Mixed) **Advantage Actor-Critic (Mixed)**.
+- Deep Q-Learning **(Value)**.
+- Proximal Policy Optimization (Policy) **(Policy)**.
+- Advantage Actor-Critic **(Mixed)**.
 
 Finally, the trained models compete in a multi-agent race environment to evaluate their performance.
 
