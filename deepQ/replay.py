@@ -30,7 +30,7 @@ def make_env():
 
 if __name__ == "__main__":
     # Cargar el modelo entrenado
-    model_path = "deepq10k.zip"  # Cambia a la ruta de tu modelo
+    model_path = "dqn_multi_car_racing.zip"  # Cambia a la ruta de tu modelo
     if not os.path.exists(model_path):
         print(f"Modelo no encontrado en {model_path}. Entrena el modelo antes de ejecutar este script.")
         exit(1)
