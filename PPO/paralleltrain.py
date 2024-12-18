@@ -80,7 +80,7 @@ if __name__ == "__main__":
     )
 
     # Entrenar el modelo
-    max_episodes = 10000  # Cambia según tus necesidades
+    max_episodes = 1000  # Cambia según tus necesidades
     callback = StopTrainingOnEpisodes(max_episodes=max_episodes, verbose=1)
     model.learn(total_timesteps=int(1e6), callback=callback)
     model.save("ppo_multi_car_racing")
