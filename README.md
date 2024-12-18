@@ -14,17 +14,16 @@ Finalmente, los modelos entrenados compiten en un entorno de carreras multiagent
 ## Simulaciones
 
 ### Deep Q-Learning
-![Deep Q-Learning en acción](videos/gifs/DQN.gif)
+<img src="videos/gifs/DQN.gif" alt="Deep Q-Learning en acción" height="400">
 
 ### Proximal Policy Optimization
-![PPO en acción](videos/gifs/PPO.gif)
+<img src="videos/gifs/PPO.gif" alt="PPO en acción" height="400">
 
 ### Advantage Actor-Critic
-![A2C en acción](videos/gifs/A2C.gif)
+<img src="videos/gifs/A2C.gif" alt="A2C en acción" height="400">
 
 ### Carrera Multiagente
-![Carrera Multiagente](videos/gifs/racefinal.gif)
-
+<img src="videos/gifs/racefinal.gif" alt="Carrera Multiagente" height="400">
 ---
 
 ## Estructura del Proyecto
