@@ -1,5 +1,9 @@
 # Proyecto de IA de RL: Comparación de Algoritmos de Refuerzo
 
+<div>
+  <img src="https://github.com/jorgecasase/github-repos-img/blob/main/img/python.png" alt="python" height="100"/>
+</div>
+
 ## Introducción
 Este proyecto tiene como objetivo estudiar y comparar distintos algoritmos de Aprendizaje por Refuerzo (RL), explorando sus características y comportamientos. Implementamos tres tipos de algoritmos:
 
