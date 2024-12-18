@@ -41,7 +41,8 @@ Finalmente, los modelos entrenados compiten en un entorno de carreras multiagent
 ├── videos/ # Contiene gifs y videos de las simulaciones 
 ├── .gitignore # Archivos ignorados por git 
 ├── enviroment.yml # Configuración del entorno de Anaconda 
-├── setup.py # Configuración de instalación de librería```
+├── setup.py # Configuración de instalación de librería
+```
 
 ---
 
@@ -67,14 +68,14 @@ Cada carpeta de algoritmo incluye los siguientes archivos:
 ### Instrucciones
 
 #### Clonar el Repositorio
-```
-git clone https://github.com/tu_usuario/multi-agent-car-racing-RL.git```
+
+```git clone https://github.com/tu_usuario/multi-agent-car-racing-RL.git```
 ```cd multi-agent-car-racing-RL```
 
 ### Crear el Entorno de Anaconda
-´´´
-conda env create -f environment.yml```
-```conda activate car´´´
+
+```conda env create -f environment.yml```
+```conda activate car```
 
 ### Instalar la Librería gym_multi_car_racing
 ```python -m pip install -e gym_multi_car_racing```
