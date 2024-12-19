@@ -144,3 +144,4 @@ The rewards accumulated per episode allow visualizing whether the model is learn
 
 ![Ejemplo de gráfica](PPO/PPO.png)
 
+
