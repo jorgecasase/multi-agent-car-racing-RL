@@ -61,7 +61,7 @@ Each algorithm folder includes the following files:
 
 ### Prerequisites
 - Anaconda installed.
-- CUDA-compatible GPU** (optional, but recommended to speed up training).
+- **CUDA-compatible GPU** (optional, but recommended to speed up training).
 
 ---
 
@@ -126,15 +126,15 @@ Each model uses a unique strategy derived from its RL algorithm, demonstrating h
 
 ### Algorithm Configuration
 
-- Deep Q-Learning (DQN)**: Uses a table of Q-values to decide the best action based on an observed state.
-- Proximal Policy Optimization (PPO)**: Policy-based algorithm that directly optimizes the probability of taking an action as a function of a state.
-- Advanced Actor-Critic (A2C)**: Combines a policy (actor) with a value function (critic) to improve stability and training efficiency.
+- **Deep Q-Learning (DQN)**: Uses a table of Q-values to decide the best action based on an observed state.
+- **Proximal Policy Optimization (PPO)**: Policy-based algorithm that directly optimizes the probability of taking an action as a function of a state.
+- **Advanced Actor-Critic (A2C)**: Combines a policy (actor) with a value function (critic) to improve stability and training efficiency.
 
 ### Strategies Used
 
-- Parallel environments**: Multiple environments are used to optimize training time and improve the efficiency of the available hardware.
-- Real-time visualization**: With `trainhuman.py`, you can observe the behavior of the model during training.
-- Learning graphs**: With `plot_results.py`, you can analyze the efficiency and rewards obtained throughout the episodes.
+- **Parallel environments**: Multiple environments are used to optimize training time and improve the efficiency of the available hardware.
+- **Real-time visualization**: With `trainhuman.py`, you can observe the behavior of the model during training.
+- **Learning graphs**: With `plot_results.py`, you can analyze the efficiency and rewards obtained throughout the episodes.
 
 ---
 
