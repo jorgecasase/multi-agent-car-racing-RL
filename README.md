@@ -114,9 +114,9 @@ In the final race, the three models compete for the highest score. Here is the f
 
 | Model  | Won races        |
 |--------|------------------|
-| PPO    | 6                |
-| A2C    | 3                |
-| DQN    | 1                |
+| A2C    | 5                |
+| PPO    | 3                |
+| DQN    | 2                |
 
 Each model uses a unique strategy derived from its RL algorithm, demonstrating how these different approaches perform in a competitive environment.
 
