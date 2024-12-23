@@ -1,11 +1,11 @@
-# RL AI Project: Comparison of Boosting Algorithms
+# RL AI Project: Comparison of Boosting Algorithms (ubuntu)
 
 <div>
   <img src="https://github.com/jorgecasase/github-repos-img/blob/main/img/python.png" alt="python" height="100"/>
   <img src="https://github.com/jorgecasase/github-repos-img/blob/main/img/anaconda.png" alt="anaconda" height="100"/>
 </div>
 
-## Introduction
+## Introduction 
 This project aims to study and compare different Reinforcement Learning (RL) algorithms, exploring their characteristics and behaviors. We implemented three types of algorithms:
 
 - Deep Q-Learning **(Value)**.
